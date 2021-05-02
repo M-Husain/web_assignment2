@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment2_430</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+
+</head>
+<body>
+<style>
+    #content .right .title{
+        font-size: 20pt;
+        font-weight: normal;
+        color: black;
+        margin: 0;
+        margin-bottom: 0px;
+        text-align: center;
+        margin-bottom: 5px;
+     }
+    #content{
+        width: 1250px;
+        height: 800px;
+    }
+    #content .right{
+        width: 300px;
+        float: right;
+
+
+    }
+    #content .right .right_bottom{
+        width: 300px;
+        float: right;
+        background: #eee;
+        height: 350px;
+        position: relative;
+        border: 1px solid #ccc;
+
+    }
+    #content .right_bottom .text{
+        font-size: 12pt;
+        direction: ltr;
+        float: left;
+        margin: 0;
+        position: absolute;
+        top: 30px;
+        left: 20px;
+        font-family: "Times New Roman";
+    }
+    #content .right_bottom .input{
+        float: right;
+        border: 1px solid black;
+        position: absolute;
+        top: 30px;
+        right: 45px;
+    }
+
+    #content .right_bottom .gender{
+        font-size: 12pt;
+        direction: ltr;
+        float: left;
+        margin: 0;
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        font-family: "Times New Roman";
+    }
+    /*#content .right_bottom .gender2{*/
+        /*margin: 0px;*/
+        /*list-style: none;*/
+        /*position: absolute;*/
+        /*top: 40px;*/
+        /*left: 20px;*/
+    /*}*/
+
+
+
+
+    #content .right_bottom .input_age{
+        float: right;
+        border: 1px solid black;
+        position: absolute;
+        top: 110px;
+        right: 45px;
+    }
+    #content .right_bottom .age{
+        font-size: 12pt;
+        direction: ltr;
+        float: left;
+        margin: 0;
+        position: absolute;
+        top: 110px;
+        left: 20px;
+        font-family: "Times New Roman";
+    }
+
+    #content .right_bottom .input_gender_male{
+        float: right;
+        border: 2px solid black;
+        position: absolute;
+        top: 72px;
+        right: 173px;
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 100%;
+        cursor: pointer;
+    }
+    #content .right_bottom .input_gender_male.active{
+        float: right;
+        position: absolute;
+        top: 72px;
+        right: 173px;
+        width: 12px;
+        height: 12px;
+        background: url(images/slices.png) no-repeat -169px -82px;
+        cursor: pointer;
+    }
+    #content .right_bottom .input_gender_female{
+        float: right;
+        border: 2px solid black;
+        position: absolute;
+        top: 72px;
+        right: 98px;
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 100%;
+        cursor: pointer;
+
+     }
+    #content .right_bottom .input_gender_female.active{
+        float: right;
+        position: absolute;
+        top: 72px;
+        right: 98px;
+        width: 12px;
+        height: 12px;
+        background: url(images/slices.png) no-repeat -169px -82px;
+        cursor: pointer;
+
+    }
+    #content .right_bottom .male{
+        float: right;
+        position: absolute;
+        top: 70px;
+        right: 135px;
+        margin: 0;
+    }
+    #content .right_bottom .female{
+        float: right;
+        position: absolute;
+        top: 70px;
+        right: 47px;
+        margin: 0;
+    }
+    #content .right_bottom .input_gender{
+        float: right;
+        border: 1px solid black;
+        position: absolute;
+        top: 70px;
+        right: 45px;
+        width: 145px;
+    }
+    #content .right_bottom .city{
+        font-size: 12pt;
+        direction: ltr;
+        float: left;
+        margin: 0;
+        position: absolute;
+        top: 150px;
+        left: 20px;
+        font-family: "Times New Roman";
+    }
+    #content .right_bottom .input_city{
+        float: right;
+        border: 1px solid black;
+        position: absolute;
+        top: 150px;
+        right: 45px;
+        width: 145px;
+    }
+    #content .right_bottom .remove{
+        position: absolute;
+        bottom: 10px;
+        left: 23px;
+        width: 60px;
+        height: 22px;
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+    #content .right_bottom .add{
+        position: absolute;
+        bottom: 10px;
+        left: 111px;
+        width: 60px;
+        height: 22px;
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    #content .right_bottom .update{
+        position: absolute;
+        bottom: 10px;
+        left: 195px;
+        width: 60px;
+        height: 22px;
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+
+    }
+</style>
+
+
+    <div id="content">
+
+        <div class="right">
+            <h4 class="title">Add/Update Person Form</h4>
+
+            <div class="right_bottom">
+
+                <p class="text">Name:</p>
+                <input class="input" type="text">
+
+                <p class="gender">Gender:</p>
+                <select class="input_gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+                <!--<span class="input_gender_male"></span>-->
+                <!--<span class="input_gender_female"></span>-->
+                <!--<p class="male">Male</p>-->
+                <!--<p class="female">Female</p>-->
+
+
+                <p class="age">Age:</p>
+                <input class="input_age" type="text" >
+
+
+
+                <p class="city">City:</p>
+                <select class="input_city">
+                    <option>Kabul</option>
+                    <option>Balkh</option>
+                    <option>Herat</option>
+                    <option>Kandahar</option>
+                    <option>Bamiyan</option>
+                    <option>Kapisa</option>
+                    <option>Baghlan</option>
+                    <option>Jalalabad</option>
+                </select>
+
+                <button class="remove">Remove</button>
+                <button class="add">Add</button>
+                <button class="update">Update</button>
+
+            </div>
+
+        </div>
+        <style>
+            .empty{
+                border: 1px solid red;
+            }
+        </style>
+        <script>
+
+            //for name
+            $(function () {
+                $(".add").click(addToList);
+                $(".remove").click(function () {
+                    $(".todos li").remove();
+                })
+                // $(".remove").click(function () {
+                //     $(".todos").click(removeMe);
+                // });
+
+            });
+            function addToList() {
+                var newTodo=$(".input").val();
+                if(!newTodo)
+                {
+                    $(".input").addClass('.empty');
+                    return;
+                }
+                $(".input").val("");
+                $(".todos").append("<li>" +newTodo+ "</li>");
+                // $(".todos").click(removeMe);
+            }
+         //for age
+
+            $(function () {
+                $(".add").click(Addage);
+                $(".remove").click(function () {
+                    $(".todos_age li").remove();
+                })
+            })
+            function Addage() {
+                var newage=$(".input_age").val();
+                if(!newage)
+                {
+                    $(".input_age").addClass('.empty');
+                    return;
+                }
+                $(".input_age").val("");
+                $(".todos_age").append("<li>" +newage+"</li>");
+            }
+
+
+            //for city
+
+            $(function () {
+                $(".add").click(Addcity);
+                $(".remove").click(function () {
+                    $(".todos_city li").remove();
+                })
+            })
+            function Addcity() {
+                var newcity=$(".input_city").val();
+                $(".todos_city").append("<li>" +newcity+"</li>");
+            }
+
+            //for gender
+
+            $(function () {
+                $(".add").click(Addgender);
+                $(".remove").click(function () {
+                    $(".todos_gender li").remove();
+                })
+            })
+            function Addgender() {
+
+                var newgender=$(".input_gender").val();
+                $(".todos_gender").append("<li>" +newgender+"</li>");
+            }
+
+
+            //for action
+
+            $(function () {
+                $(".add").click(Addaction);
+                $(".remove").click(function () {
+                    $(".todos_action li").remove();
+                })
+            })
+            function Addaction() {
+                var newaction=$(".todos_action li").val();
+
+                // var newaction=$("#update").value;
+                // var newaction1=$("#remove").val();
+                // $(".todos_action").append("<button>" +newaction+"</button>");
+                // $(".todos_action").append("<button>" +newaction1+"</button>");
+
+                $(".todos_action ").append("<li>" +newaction+"</li>");
+            }
+
+
+        </script>
+
+
+
+        <style>
+            #content .left{
+                width: 500px;
+                height: 300px;
+                float: right;
+                margin-right: 50px;
+            }
+            .list_title{
+                font-size: 20pt;
+                font-weight: normal;
+                color: black;
+                margin: 0;
+                margin-bottom: 0px;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            .list{
+                position: relative;
+                width: 100%;
+                height: 90%;
+                border: 1px solid black;
+            }
+            .todos{
+                list-style: none;
+                padding: 0;
+                margin: 0px 6px;
+                width: 65px;
+                height: 20px;
+                float: left;
+            }
+            .todos_gender{
+                list-style: none;
+                padding: 0;
+                margin: 0px;
+                width: 65px;
+                height: 20px;
+                float: left;
+                margin-left: 26px;
+            }
+            .todos_age{
+                list-style: none;
+                padding: 0;
+                margin: 0px;
+                width: 65px;
+                height: 20px;
+                float: left;
+                margin-left: 26px;
+            }
+            .todos_city{
+                list-style: none;
+                padding: 0;
+                margin: 0px;
+                width: 65px;
+                height: 20px;
+                float: left;
+                margin-left: 13px;
+            }
+            .todos_action{
+                list-style: none;
+                padding: 0;
+                margin: 0px;
+                width: 97px;
+                height: 20px;
+                float: left;
+                position: relative;
+
+            }
+            .list_top{
+                width: 100%;
+                float: right;
+                height: 30px;
+                background: #ccc;
+
+            }
+            .list_bottom{
+                float: left;
+                width: 100%;
+                height: 89%;
+                background: #eee;
+            }
+            .list .list_top ul{
+                list-style: none;
+                line-height: 30px;
+                padding-left: 10px;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+            #update{
+                position: absolute;
+                left: 1px;
+                top: 0px;
+                border: 0;
+                padding: 0;
+                height: 20px;
+                cursor: pointer;
+
+            }
+            #remove{
+                position: absolute;
+                left: 47px;
+                top: 0px;
+                border: 0;
+                padding: 0;
+                height: 20px;
+                cursor: pointer;
+
+            }
+
+        </style>
+        <div class="left">
+            <h4 class="list_title">List of persons</h4>
+            <div class="list">
+
+                <div class="list_top">
+                    <ul>
+                        <li style="float: left;margin-right: 50px;">Name</li>
+                        <li style="float: left;margin-right: 50px;">Gender</li>
+                        <li style="float: left;margin-right: 50px;">Age</li>
+                        <li style="float: left;margin-right: 50px;">City</li>
+                        <li>Action</li>
+                    </ul>
+
+                </div>
+                <div class="list_bottom">
+                    <ul class="todos">
+                        <li>Hussain</li>
+                    </ul>
+                    <ul class="todos_gender">
+                        <li>Male</li>
+                    </ul>
+                    <ul class="todos_age">
+                        <li>25</li>
+                    </ul>
+                    <ul class="todos_city">
+                        <li>Balkh</li>
+                    </ul>
+                    <ul class="todos_action">
+
+                            <!--<button id="update">Update/</button>-->
+                            <!--<button id="remove">Remove</button>-->
+
+
+                        <li>Update/Remove</li>
+                    </ul>
+                    <!--<p style="display: none" class="action_remove">Update/Remove</p>-->
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+<!--<script>-->
+    <!--$(".input_gender_male").click(function () {-->
+        <!--$(".input_gender_female").removeClass('active');-->
+        <!--$(this).addClass('active');-->
+
+    <!--})-->
+    <!--$(".input_gender_female").click(function () {-->
+        <!--$(".input_gender_male").removeClass('active');-->
+        <!--$(this).addClass('active');-->
+    <!--})-->
+<!--</script>-->
+
+
+
+</body>
+</html>
